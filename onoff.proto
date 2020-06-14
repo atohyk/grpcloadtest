@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package onoff;
+
+service onoff {
+  rpc GetStateStream(Empty) returns (stream State){}
+  rpc SetState(State) returns (RequestStatus) {}
+}
+
+message Empty {
+
+}
+
+message State {
+  bool onoff = 1;
+}
+
+message RequestStatus {
+  bool success = 1;
+}
